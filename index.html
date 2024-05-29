@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1 class="title">Sugestão de Presentes</h1>
-	<h5 class="subtitle">(preferência por PIX, devido ao deslocamento)</h5>
     <div class="container" id="quadros"></div>
 
     <script>
@@ -30,7 +29,7 @@
                                 <h3>R$ ${campos[3]}</h3>
                                 <img class="qr-code" src="qr${count}.jpg" alt="QR Code ${campos[0]}: R$ ${campos[3]}">
 								<div class="tooltip">
-									<button class="copy-button" onclick="copiarTexto('${campos[2]}', ${count})" onmouseout="outFunc(${count})">
+									<button class="copy-button" onclick="copiarTexto('${campos[2]}', ${count}, 'QR Code PIX Copiado!')" onmouseout="outFunc(${count})">
 									<span class="tooltiptext" id="myTooltip${count}">Copiar para colar no app do banco</span>
 									Copiar QR Code PIX
 									</button>
@@ -45,11 +44,11 @@
         }
 
         // Função para copiar texto para a área de transferência
-        function copiarTexto(texto, count) {
+        function copiarTexto(texto, count, mensagem) {
             navigator.clipboard.writeText(texto)
 				.then(() => {
 					var tooltip = document.getElementById("myTooltip" + count);
-					tooltip.innerHTML = "QR Code PIX Copiado!";
+					tooltip.innerHTML = mensagem;
 				})
                 .catch(error => console.error('Erro ao copiar código:', error));
         }
@@ -63,8 +62,14 @@
 		}
     </script>
 	
-	<h3>Para outros valores, PIX Telefone:</h3>
-	<h3>81986164730</h3>
+	<h3 class="telefone">Para outros valores, chave PIX Telefone:</h3>
+	<div class="tooltip">
+		<button class="copy-button" onclick="copiarTexto(81986164730, 7, 'Chave PIX Copiada!')" onmouseout="outFunc(7)">
+		<span class="tooltiptext" id="myTooltip7">Copiar para colar no app do banco</span>
+		<h3 class="telefone"><b>(81) 98616-4730</b></h3>
+		</button>
+	</div>
+	<br>
 	<br>
 </body>
 </html>
