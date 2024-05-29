@@ -37,7 +37,7 @@ h3 {
 }
 
 .quadro {
-    width: calc(28% - 20px);
+    width: calc(26% - 20px);
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
