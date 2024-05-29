@@ -27,7 +27,7 @@
                             <div class="quadro">
                                 <h3>${campos[0]}</h3>
                                 <img src="${campos[1]}" alt="${campos[0]}">
-                                <b><p>R$ ${campos[3]}</p></b>
+                                <h3>R$ ${campos[3]}</h3>
                                 <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?data=${campos[2]}&size=125x125" alt="QR Code ${campos[0]}: R$ ${campos[3]}">
 								<div class="tooltip">
 									<button class="copy-button" onclick="copiarTexto('${campos[2]}', ${count})" onmouseout="outFunc(${count})">
@@ -63,8 +63,8 @@
 		}
     </script>
 	
-	<h4 class="rodape">Para outros valores, PIX Telefone:</h4>
-	<h4 class="rodape">81986164730</h4>
+	<h3>Para outros valores, PIX Telefone:</h3>
+	<h3>81986164730</h3>
 	<br>
 </body>
 </html>
