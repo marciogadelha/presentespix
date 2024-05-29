@@ -20,7 +20,7 @@
                 .then(response => response.text())
                 .then(text => {
                     // Dividir o texto em linhas e criar quadros para cada linha
-					var count = 0
+					var count = 1
                     text.trim().split('\n').forEach(linha => {
                         const campos = linha.split(';');
                         const quadro = `
@@ -28,7 +28,7 @@
                                 <h3>${campos[0]}</h3>
                                 <img src="${campos[1]}" alt="${campos[0]}">
                                 <h3>R$ ${campos[3]}</h3>
-                                <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?data=${campos[2]}&size=125x125" alt="QR Code ${campos[0]}: R$ ${campos[3]}">
+                                <img class="qr-code" src="qr${count}.jpg" alt="QR Code ${campos[0]}: R$ ${campos[3]}">
 								<div class="tooltip">
 									<button class="copy-button" onclick="copiarTexto('${campos[2]}', ${count})" onmouseout="outFunc(${count})">
 									<span class="tooltiptext" id="myTooltip${count}">Copiar para colar no app do banco</span>
