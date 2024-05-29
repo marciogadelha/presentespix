@@ -32,8 +32,12 @@ body {
     text-align: center;
 }
 
+h3 {
+	text-align: center;
+}
+
 .quadro {
-    width: calc(28% - 20px); /* Largura de aproximadamente 33.33% do contêiner pai (descontando a margem) */
+    width: calc(25% - 20px); /* Largura de aproximadamente 33.33% do contêiner pai (descontando a margem) */
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -44,6 +48,10 @@ body {
     flex-direction: column; /* Dispor os elementos verticalmente */
     justify-content: center; /* Centralizar o conteúdo verticalmente */
     text-align: center; /* Centralizar o texto horizontalmente */
+}
+
+.quadro h2 {
+    text-align: center; /* Centraliza o título dentro do quadro */
 }
 
 .quadro img {
