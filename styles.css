@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('background.png'); /* Define a imagem de fundo para o corpo da página */
+    background-size: cover; /* Faz com que a imagem de fundo cubra toda a página */
+    background-position: center; /* Centraliza a imagem de fundo */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* Tornar o contêiner flexível */
+    flex-wrap: wrap; /* Permitir que os itens quebrem linha */
+    justify-content: center; /* Centralizar os itens horizontalmente */
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+.quadro {
+    width: calc(25% - 20px); /* Largura de aproximadamente 33.33% do contêiner pai (descontando a margem) */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    flex: 0 0 auto; /* Cresce, mas não encolhe, e usa a largura automática */
+    display: flex; /* Tornar o quadro um contêiner flexível */
+    flex-direction: column; /* Dispor os elementos verticalmente */
+    justify-content: center; /* Centralizar o conteúdo verticalmente */
+    text-align: center; /* Centralizar o texto horizontalmente */
+}
+
+.quadro h2 {
+    text-align: center; /* Centraliza o título dentro do quadro */
+}
+
+.quadro img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.qr-code {
+    display: block;
+    margin: 10px auto;
+}
+
+.copy-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Estilos para dispositivos de tela menor (celulares) */
+@media (max-width: 600px) {
+    .quadro {
+        width: 90%; /* Largura quase total para ocupar a largura do contêiner pai */
+    }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

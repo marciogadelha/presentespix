@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestão de Presentes</title>
+    <!-- Vincular o arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="title">Sugestão de Presentes</h1>
+    <div class="container" id="quadros"></div>
+
+    <script>
+        // Função para carregar quadros a partir de um arquivo CSV
+        function carregarQuadros() {
+            // Substitua "produtos.csv" pelo caminho do seu arquivo CSV
+            fetch('produtos.csv')
+                .then(response => response.text())
+                .then(text => {
+                    // Dividir o texto em linhas e criar quadros para cada linha
+					var count = 0
+                    text.trim().split('\n').forEach(linha => {
+                        const campos = linha.split(';');
+                        const quadro = `
+                            <div class="quadro">
+                                <h3>${campos[0]}</h3>
+                                <img src="${campos[1]}" alt="${campos[0]}">
+                                <b><p>R$ ${campos[3]}</p></b>
+                                <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?data=${campos[2]}&size=125x125" alt="QR Code ${campos[0]}: R$ ${campos[3]}">
+								<div class="tooltip">
+									<button class="copy-button" onclick="copiarTexto('${campos[2]}', ${count})" onmouseout="outFunc(${count})">
+									<span class="tooltiptext" id="myTooltip${count}">Copiar para colar no app do banco</span>
+									Copiar QR Code PIX
+									</button>
+								</div>
+                            </div>
+                        `;
+                        document.getElementById('quadros').innerHTML += quadro;
+						count++;
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar quadros:', error));
+        }
+
+        // Função para copiar texto para a área de transferência
+        function copiarTexto(texto, count) {
+            navigator.clipboard.writeText(texto)
+				.then(() => {
+					var tooltip = document.getElementById("myTooltip" + count);
+					tooltip.innerHTML = "QR Code PIX Copiado!";
+				})
+                .catch(error => console.error('Erro ao copiar código:', error));
+        }
+
+        // Carregar quadros ao carregar a página
+        window.onload = carregarQuadros;
+		
+		function outFunc(count) {
+			var tooltip = document.getElementById("myTooltip" + count);
+			tooltip.innerHTML = "Copiar para colar no app do banco";
+		}
+    </script>
+</body>
+</html>
