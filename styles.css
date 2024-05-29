@@ -37,7 +37,7 @@ h3 {
 }
 
 .quadro {
-    width: calc(25% - 20px); /* Largura de aproximadamente 33.33% do contêiner pai (descontando a margem) */
+    width: calc(28% - 20px);
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
